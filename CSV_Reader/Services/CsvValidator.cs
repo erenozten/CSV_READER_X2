@@ -2,7 +2,7 @@
 
 namespace CSV_Reader.Services
 {
-    public class CsvValidator : ICsvValidator
+    public class CsvValidator : ICsvValidator, IDisposable
     {
         public bool IsValidHotelName(string hotelName)
         {
@@ -31,6 +31,11 @@ namespace CSV_Reader.Services
             //return false;
 
             return star >= 1 && star <= 5;
+        }
+
+        // Used to prevent Dispose method to be called outside of the class.
+        void IDisposable.Dispose()
+        {
         }
     }
 }

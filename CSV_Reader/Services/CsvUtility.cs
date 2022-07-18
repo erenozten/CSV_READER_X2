@@ -3,7 +3,7 @@ using CSV_Reader.Models;
 
 namespace CSV_Reader.Services
 {
-    public class CsvUtility: ICsvUtility
+    public class CsvUtility: ICsvUtility, IDisposable
     {
         public string GetTodaysDate()
         {
@@ -22,6 +22,11 @@ namespace CSV_Reader.Services
                     file.CopyTo(fileStream);
                 }
             }
+        }
+
+        // Used to prevent Dispose method to be called outside of the class.
+        void IDisposable.Dispose()
+        {
         }
     }
 }

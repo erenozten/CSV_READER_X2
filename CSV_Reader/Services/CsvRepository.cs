@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace CSV_Reader.Services
 {
-    public class CsvRepository: ICsvRepository
+    public class CsvRepository: ICsvRepository, IDisposable
     {
         private readonly ApplicationDbContext _context;
 
@@ -109,6 +109,9 @@ namespace CSV_Reader.Services
             return validHotels.ToList();
         }
 
-       
+        // Used to prevent Dispose method to be called outside of the class.
+        void IDisposable.Dispose()
+        {
+        }
     }
 }
