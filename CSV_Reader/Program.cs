@@ -27,12 +27,14 @@ var mapperConfig = new MapperConfiguration(mc =>
 IMapper mapper = mapperConfig.CreateMapper();
 builder.Services.AddSingleton(mapper);
 builder.Services.AddControllersWithViews();
+
 builder.Services.AddTransient<ApplicationDbContext>();
+
 builder.Services.AddScoped<ICsvValidator, CsvValidator>();
 builder.Services.AddScoped<ICsvRepository, CsvRepository>();
 builder.Services.AddScoped<ICsvUtility, CsvUtility>();
 
-builder.Services.AddScoped<ICsvConverter, CsvToXmlConverter>();
+//builder.Services.AddScoped<ICsvConverter, CsvToXmlConverter>();
 
 builder.Services.AddScoped<ICsvToXmlConverter, CsvToXmlConverter>();
 builder.Services.AddScoped<ICsvToHtmlConverter, CsvToHtmlConverter>();
