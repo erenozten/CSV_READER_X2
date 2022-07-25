@@ -9,12 +9,10 @@ namespace CSV_Reader.Implementations.Converters
     public class CsvToDotNetObjectConverter : ICsvToDotNetObjectConverter
     {
         private readonly ICsvValidator _csvValidator;
-        private readonly ICsvUtility _csvUtility;
 
-        public CsvToDotNetObjectConverter(ICsvValidator csvValidator, ICsvUtility csvUtility)
+        public CsvToDotNetObjectConverter(ICsvValidator csvValidator)
         {
             _csvValidator = csvValidator;
-            _csvUtility = csvUtility;
         }
 
         public HotelViewModel Convert(IFormFile postedFile, string selectedAnswer)
